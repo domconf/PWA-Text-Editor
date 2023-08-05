@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // Add this line
 const path = require('path');
 
 module.exports = () => {
@@ -6,7 +7,8 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      serviceWorker: './src-sw.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -16,6 +18,11 @@ module.exports = () => {
       new HtmlWebpackPlugin({
         template: './index.html',
         chunks: ['main'],
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          { from: './src-sw.js', to: 'src-sw.js' },
+        ],
       }),
     ],
     module: {
