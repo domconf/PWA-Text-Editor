@@ -1,5 +1,9 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin'); // Add this line
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { WebpackPwaManifest } = require('webpack-pwa-manifest');
+const { InjectManifest } = require('workbox-webpack-plugin');
+
+
 const path = require('path');
 
 module.exports = () => {
