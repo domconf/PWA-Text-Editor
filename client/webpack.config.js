@@ -19,6 +19,25 @@ module.exports = () => {
         template: './index.html',
         chunks: ['main'],
       }),
+      new WebpackPwaManifest({
+        name: 'Your PWA Text Editor',
+        short_name: 'Text Editor',
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#ffffff',
+        theme_color: '#000000',
+        icons: [
+          {
+            src: path.resolve('src/images/icon.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('icons'),
+          },
+        ],
+      }),
+      new InjectManifest({
+        swSrc: './src/service-worker.js',
+        swDest: 'service-worker.js',
+      }),
       new CopyWebpackPlugin({
         patterns: [
           { from: './src-sw.js', to: 'src-sw.js' },
