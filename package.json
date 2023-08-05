@@ -17,7 +17,10 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
-    "if-env": "^1.0.4"
+    "html-webpack-plugin": "^5.5.3",
+    "if-env": "^1.0.4",
+    "webpack-pwa-manifest": "^4.3.0",
+    "workbox-webpack-plugin": "^7.0.0"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
